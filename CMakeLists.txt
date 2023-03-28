@@ -8,3 +8,6 @@ include_directories(include)
 add_executable(labwork-9-IgorM27 main.cpp
                include/Pool.h
                include/Allocator.h)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/include/Config.txt
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

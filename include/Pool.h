@@ -21,7 +21,7 @@ public:
         count_ = count;
         length_ = length;
         size_ = count_ * length_;
-        start_ = static_cast<T*>(operator new(size_ * sizeof(T)));
+        start_=new T[size_];
         free_.emplace_back(0, count);
     }
 
@@ -101,7 +101,7 @@ public:
     }
 
     ~Pool() {
-        operator delete(start_, size_ * sizeof(T));
+        delete[] start_;
     }
 
 };

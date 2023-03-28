@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include "fstream"
+#include "filesystem"
 
 size_t kDefaultCount = 10;
 size_t kDefaultLength = 10000;
@@ -80,7 +81,8 @@ public:
     }
 
     void parameters(std::vector<Pool<value_type>*>& pool) {
-        std::ifstream input(R"(..\\include\Config.txt)", std::ios::binary);
+        std::filesystem::path config_path = "Config.txt";
+        std::ifstream input(config_path, std::ios::binary);
         std::vector<size_type> count_;
         std::vector<size_type> length_;
         size_type number;
